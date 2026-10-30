@@ -1,0 +1,48 @@
+/* Tokens (system-ui-ux.md §0: HUD style, 0 radius, 4px grid, accent glow) */
+:root {
+  --void: #000;
+  --panel: #0d1117;
+  --accent: #00d4ff;
+  --accent-45: rgba(0, 212, 255, 0.45);
+  --glow: 0 0 12px rgba(0, 212, 255, 0.5);
+  --glow-hot: 0 0 25px rgba(0, 212, 255, 0.9);
+  --text: #e6edf3;
+  --dim: #7d8590;
+  --hot: #ff4d4d;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --chamfer: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  --chamfer-sm: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+* { box-sizing: border-box; border-radius: 0; }
+body { margin: 0; background: var(--void); color: var(--text); font: 14px/1.5 var(--mono); }
+h1, h2, h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+p { margin: 8px 0; }
+
+.app { max-width: 880px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+.bar { display: flex; justify-content: space-between; align-items: center; }
+.metric, .mono { font-family: var(--mono); font-weight: 700; }
+.dim { color: var(--dim); }
+.hot { color: var(--hot); }
+
+.panel, .card { background: var(--panel); border: 1px solid var(--accent-45); padding: 8px 16px; clip-path: var(--chamfer); }
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.card-head { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+
+.form { display: grid; gap: 8px; margin-top: 8px; }
+.row { display: flex; gap: 8px; }
+.input {
+  width: 100%; background: var(--void); color: var(--text); border: 2px solid var(--accent-45);
+  padding: 8px 12px; font: inherit; outline: none;
+}
+.input:focus { border-color: var(--accent); }
+
+.btn {
+  background: var(--void); color: var(--accent); border: 2px solid var(--accent); padding: 8px 24px;
+  font: 700 14px var(--mono); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+  box-shadow: var(--glow); clip-path: var(--chamfer); transition: 150ms ease;
+}
+.btn:hover { background: var(--accent); color: var(--void); box-shadow: var(--glow-hot); }
+.btn.sm { padding: 4px 12px; font-size: 12px; clip-path: var(--chamfer-sm); }
+.btn.hot-btn { color: var(--hot); border-color: var(--hot); box-shadow: 0 0 12px rgba(255, 77, 77, 0.5); }
+.btn.hot-btn:hover { background: var(--hot); color: var(--void); }

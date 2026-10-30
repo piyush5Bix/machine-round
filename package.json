@@ -1,0 +1,18 @@
+{
+  "name": "machine-round",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["server", "client"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "dev:server": "npm run dev -w server",
+    "dev:client": "npm run dev -w client",
+    "seed": "npm run seed -w server",
+    "seed:big": "npm run seed -w server -- 100000",
+    "build": "npm run build -w client",
+    "loadtest": "npm run loadtest -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
